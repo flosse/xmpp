@@ -1085,6 +1085,28 @@
           </iq>]]></example>
         <p>Note that the class returns instances of subclasses, as
           well as direct instances of the class.</p>
+        <p>To limit the amount of results, the client can add an
+          &lt;limit&gt; verb with the number of maximum results:</p>
+        <example caption='Limit Results'><![CDATA[
+          <iq type='get'
+              id='joap_search_3'
+              from='Client@example.com'
+              to='Building@trainset.example.com'>
+            <search xmlns='jabber:iq:joap'>
+              <limit>2</limit>
+            </search>
+          </iq>]]></example>
+        <p>The server should return the following stanza:</p>
+        <example caption='Limited Results'><![CDATA[
+          <iq type='result'
+              id='joap_search_3'
+              from='Building@trainset.example.com'
+              to='Client@example.com'>
+            <search xmlns='jabber:iq:joap'>
+              <item>Building@trainset.example.com/Courthouse</item>
+              <item>Station@trainset.example.com/Paddington</item>
+            </search>
+          </iq>]]></example>
       </section3>
     </section2>
     <section2 topic='Method Calls'>
