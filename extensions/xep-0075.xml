@@ -1087,6 +1087,31 @@
           well as direct instances of the class.</p>
       </section3>
     </section2>
+    <section2 topic='&lt;subscribe&gt;'>
+      <p>The &lt;subscribe&gt; verb allows a client to subscribe to change
+        events that gets fired by the server when an attribute has changed.
+      </p>
+      <section3 topic='Examples'>
+        <p>To subscribe to changes of an instance the client send an empty
+          &lt;subscribe&gt; verb, as follows:
+        </p>
+        <example caption='Subscribing to attribute changes of an instance'>
+          <![CDATA[<iq type='set'
+              id='joap_subscribe_1'
+              from='Client@example.com'
+              to='Building@trainset.example.com/SmithFamilyHome'>
+            <subscribe xmlns='jabber:iq:joap' />
+          </iq>]]></example>
+        <p>The Building instance would return the following stanza:</p>
+        <example caption='Subscription Result'><![CDATA[
+          <iq type='result'
+              id='joap_subscribe_1'
+              from='Building@trainset.example.com/SmithFamilyHome'
+              to='Client@example.com'>
+            <subscribe xmlns='jabber:iq:joap' />
+          </iq>]]></example>
+      </section3>
+    </section2>
     <section2 topic='Method Calls'>
       <p>Method calls in JOAP are simply XML-RPC calls, as defined in
         XEP-0009.<note>XEP-0009 leaves some open questions as to use
